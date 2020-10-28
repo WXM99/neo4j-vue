@@ -51,6 +51,7 @@
           session.close();
         }).catch(function (error) {
           console.log('查询语句不合法');
+          console.log(error);
         });
       }
     },
