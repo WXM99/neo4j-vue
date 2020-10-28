@@ -24,7 +24,7 @@
     },
     data() {
       return {
-        query: 'MATCH p=()-[r:REVIEWED]->() RETURN p LIMIT 25',
+        query: 'MATCH (N) RETURN (N)',
         records: [],
         clearAll: false
       }

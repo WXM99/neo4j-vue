@@ -30,7 +30,7 @@ module.exports = {
     cssSourceMap: false
   },
   setting: {
-    neo4jUrl: 'bolt://10.0.0.7:7687',
+    neo4jUrl: 'bolt://localhost:7687',
     neo4jUserName: 'neo4j',
     neo4jPassword: '123456'
   }
