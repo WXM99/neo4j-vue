@@ -1,11 +1,5 @@
 <template>
   <div class="kgWidget">
-    <div class="kgHead">
-      <div style="margin-left:30px;">
-        <span>输入查询语句进行查询:</span>
-        <input type="text" style="width:700px;" v-model="query" @keyup.enter="executeQuery"/>
-      </div>
-    </div>
     <div class="flexRow kgWidgetContainer">
       <div class="editBox flexColumn">
         <Visualization @clickNode="handleClickNode" :records="records" :clearAll="clearAll"></Visualization>
@@ -15,7 +9,7 @@
 </template>
 <script type="text/ecmascript-6">
   import { Visualization } from 'components/D3Visualization'
-  import { v1 as neo4j } from 'neo4j-driver-alias'
+  import neo4j from 'neo4j-driver-alias'
   import { setting } from 'config/index'
 
   export default {
@@ -24,12 +18,13 @@
     },
     data() {
       return {
-        query: 'MATCH (N) RETURN (N)',
+        query: 'MATCH p=()-->() RETURN p',
         records: [],
         clearAll: false
       }
     },
     mounted() {
+      this.query = this.$route.params.cypher
       this.driver = neo4j.driver(setting.neo4jUrl, neo4j.auth.basic(setting.neo4jUserName, setting.neo4jPassword));
       this.executeQuery();
     },
@@ -46,6 +41,7 @@
         if (query == '') return;
 
         session.run(query, {}).then(function (result) {
+          console.log(result)
           me.clearAll = false;
           me.records = result.records;
           session.close();
@@ -231,7 +227,6 @@
 
   .kgWidget .kgWidgetContainer {
     box-sizing: border-box;
-    padding-top: 60px;
     font-size: 12px
   }
 

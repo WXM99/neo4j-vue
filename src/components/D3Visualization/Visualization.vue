@@ -1,7 +1,7 @@
 <template>
   <div
     :style="[{'width': '100%'},
-    {'height': fullscreen ? '100vh' : (dim.frameBodyHeight - (dim.frameTitlebarHeight * 2)) + 'px'},
+    {'height': '500px'},
     {'display': extendStyle.display}]">
     <ExplorerComponent
       ref="ExplorerComponent"
@@ -26,7 +26,7 @@
   import ExplorerComponent from './components/Explorer'
   import { dim } from './constants'
   import Vue from 'vue'
-  import { v1 as neo4j } from 'neo4j-driver-alias'
+  import neo4j from 'neo4j-driver-alias'
   import { setting } from 'config/index'
 
   export default{

@@ -14,7 +14,7 @@ export default new VueRouter({
 		redirect: '/neo4j'
 	}, {
 		name : 'neo4j',
-		path: '/neo4j',
+		path: '/neo4j/:cypher',
 		component: require('../views/Main')
 	}]
 })

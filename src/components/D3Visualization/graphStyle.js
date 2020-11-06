@@ -246,7 +246,7 @@ export default function neoGraphStyle () {
           defaultCaption: '<id>'
         }
       }
-      const captionPrioOrder = [/^name$/i, /^title$/i, /^label$/i, /name$/i, /description$/i, /^.+/]
+      const captionPrioOrder = [/^predicate$/i, /^object$/i, /^subject$/i, /procedureId$/i, /place$/i, /^.+/]
       let defaultCaption = captionPrioOrder.reduceRight(function (leading, current) {
         let hits = item.propertyList.filter(function (prop) {
           return current.test(prop.key)

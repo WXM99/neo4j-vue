@@ -19,7 +19,7 @@
  */
 
 import { v4 } from 'uuid'
-import { v1 as neo4j } from 'neo4j-driver/lib/browser/neo4j-web.min.js'
+import  neo4j  from 'neo4j-driver/lib/browser/neo4j-web.min.js'
 import { stringifyMod } from '../utils'
 import * as mappings from './boltMappings'
 import { BoltConnectionError, createErrorObject } from '../exceptions'
